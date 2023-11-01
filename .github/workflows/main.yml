@@ -8,7 +8,7 @@ on: push
 jobs:
 
   setup_poetry:
-    - name: Setup Poetry
+    - name: setup-poetry
       # You may pin to the exact commit or the version.
       # uses: Gr1N/setup-poetry@15821dc8a61bc630db542ae4baf6a7c19a994844
       uses: Gr1N/setup-poetry@v8

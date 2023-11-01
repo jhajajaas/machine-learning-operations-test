@@ -13,17 +13,12 @@ jobs:
       # uses: Gr1N/setup-poetry@15821dc8a61bc630db542ae4baf6a7c19a994844
       uses: Gr1N/setup-poetry@v8
       with:
-        # Allow to install prerelease versions of Poetry
-        poetry-preview: # optional, default is false
-        # Poetry version to use, if version is not provided then latest stable version will be used
         poetry-version: 1.6.1
       run: |
         echo $poetry-version
 
   setup_terraform:
     - name: terraform-cdk-action
-      # You may pin to the exact commit or the version.
-      # uses: hashicorp/terraform-cdk-action@6ec128587b096e193153cd0af586366d051d78e4
       uses: hashicorp/terraform-cdk-action@v0.2.0
       with:
         # The version of CDKTF to use
@@ -31,21 +26,16 @@ jobs:
         # The version of Terraform to use
         terraformVersion: 1.5.1
         # The directory to use for the project
-        workingDirectory: # optional, default is ./
+        # workingDirectory:  optional, default is ./
         # What action to take: `synth-only` runs only the synthesis, `plan-only` only runs a plan, `auto-approve-apply` runs a plan and then performs an apply, `auto-approve-destroy` runs a plan and then performs a destroy
-        mode:
+        mode: 'plan-only'
         # The stack to run / plan, only required when the mode is `plan-only` or `plan-and-apply`
-        stackName: # optional
+        # stackName:  optional
         # The Terraform Cloud / Terraform Enterprise token to use
-        terraformCloudToken: # optional
+        # terraformCloudToken: # optional
         # The github token to use
-        githubToken: # optional
+        # githubToken: # optional
         # Whether to comment the plan / the status on the PR
-        commentOnPr: # optional, default is true
-        # Whether to update the last comment on the PR rather than adding a new comment
-        updateComment: # optional, default is true
-        # The additional CLI arguments to pass to npx as part of the cdktf-cli execution.
-        customNpxArgs: # optional, default is
       run: |
         echo $cdktfVersion
         echo $terraformVersion
